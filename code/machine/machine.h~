@@ -136,13 +136,13 @@ class Machine {
     TranslationEntry *pageTable;
     unsigned int pageTableSize;
     bool ReadMem(int addr, int size, int* value);
-    bool usedPhyPage[NumPhysPages];
+    bool usedPhyPage[NumPhysPages];//record which the page in the main memory is used.
     bool usedvirPage[NumPhysPages];
     int  ID_num;
     int PhyPageName[NumPhysPages];
-    int count[NumPhysPages]; 
-    bool reference_bit[NumPhysPages];
-    int sector_number;
+    int count[NumPhysPages]; //for LRU
+    bool reference_bit[NumPhysPages];//for second chance algo.
+    int sector_number;//record which sector the disk is saving
 
     TranslationEntry *main_tab[NumPhysPages];
     
